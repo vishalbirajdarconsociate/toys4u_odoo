@@ -17,8 +17,23 @@
    		</xpath>
    		
    		<xpath expr="//div[@t-attf-class='card border-0 mx-auto bg-100 {{login_card_classes}} o_database_list']" position="before">
-   			<!-- <div id="background-wrapper" t-attf-style="background-image: url('#{background_src}');"></div> -->
+   			<!-- <div id="background-wrapper" t-attf-style="background-image: url('{background_src}');"></div> -->
+			<t t-set="current_hour" t-value="int(time.strftime('%H'))" />
+			<t t-if="0 &lt;= current_hour &lt; 4">
    			<div id="background-wrapper" t-attf-style="background-image: url('/odoo_web_login/static/src/img/background_login_4.png');"></div>
+			</t>
+			<t t-elif="19 &lt;= current_hour &lt; 24">
+   			<div id="background-wrapper" t-attf-style="background-image: url('/odoo_web_login/static/src/img/background_login_4.png');"></div>
+			</t>
+			<t t-elif="4 &lt;= current_hour &lt; 7">
+   			<div id="background-wrapper" t-attf-style="background-image: url('/odoo_web_login/static/src/img/background_login_1.png');"></div>
+			</t>
+			<t t-elif="7 &lt;= current_hour &lt; 17">
+   			<div id="background-wrapper" t-attf-style="background-image: url('/odoo_web_login/static/src/img/background_login_1.png');"></div>
+			</t>
+			<t t-else="">
+   			<div id="background-wrapper" t-attf-style="background-image: url('/odoo_web_login/static/src/img/background_login_3.png');"></div>
+			</t>
    		</xpath>
    		
    		<xpath expr="//div[@t-attf-class='card border-0 mx-auto bg-100 {{login_card_classes}} o_database_list']" position="attributes">
